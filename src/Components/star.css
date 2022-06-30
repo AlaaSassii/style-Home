@@ -1,0 +1,84 @@
+:root {
+    --body-bg: #1c2451;
+    --txt-color: #f1f1f1;
+    --star-color: #d4d4d4;
+    --yellow: gold;
+    --blue: #0b75cb;
+    --green: #449a47;
+}
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+
+
+.rating-wrapper {
+    padding:10px ; 
+    display: flex;
+    align-items: center;
+}
+.rating-wrapper .div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+.rating-wrapper .div h2 {
+    font-size: 35px;
+}
+.rating-label {
+    font-size: 30px;
+    color:black
+}
+
+
+
+.rating-star {
+    position: relative;
+    display: flex;
+    margin: 10px 0;
+    flex-direction: row-reverse;
+}
+
+.rating-star input {
+    position: relative;
+    width: 20px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    appearance: none;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.rating-star input::before {
+    content: '\eeb8';
+    position: absolute;
+    font-family: boxicons;
+    font-size: 34px;
+    position: absolute;
+    left: 4px;
+    color: var(--star-color);
+    transition: all .3s;
+}
+
+.rating-star input:nth-child(2n + 1)::before {
+    right: 4px;
+    left: initial;
+}
+
+.rating-star input:hover ~ input::before,
+.rating-star input:hover::before,
+.rating-star input:checked ~ input::before,
+.rating-star input:checked::before {
+    color: var(--yellow);
+}
+
